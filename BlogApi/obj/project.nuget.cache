@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "JDarndyzBfI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\zoli\\Desktop\\2026_2027\\2_14_F_Backend\\BlogApp\\BlogApi\\BlogApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zoli\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.19\\microsoft.aspnetcore.openapi.9.0.19.nupkg.sha512",
+    "C:\\Users\\zoli\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\zoli\\.nuget\\packages\\scalar.aspnetcore\\2.17.3\\scalar.aspnetcore.2.17.3.nupkg.sha512"
+  ],
+  "logs": []
+}
