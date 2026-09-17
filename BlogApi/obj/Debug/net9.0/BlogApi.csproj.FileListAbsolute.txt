@@ -33,3 +33,4 @@ C:\Users\zoli\Desktop\2026_2027\2_14_F_Backend\BlogApp\BlogApi\obj\Debug\net9.0\
 C:\Users\zoli\Desktop\2026_2027\2_14_F_Backend\BlogApp\BlogApi\obj\Debug\net9.0\ref\BlogApi.dll
 C:\Users\zoli\Desktop\2026_2027\2_14_F_Backend\BlogApp\BlogApi\bin\Debug\net9.0\Scalar.AspNetCore.dll
 C:\Users\zoli\Desktop\2026_2027\2_14_F_Backend\BlogApp\BlogApi\obj\Debug\net9.0\BlogApi.sourcelink.json
+C:\Users\zoli\Desktop\2026_2027\2_14_F_Backend\BlogApp\BlogApi\bin\Debug\net9.0\MySqlConnector.dll
