@@ -49,5 +49,47 @@ namespace BlogApi.Controllers
                 result = bloggers
             };
         }
+
+        [HttpGet("byId")]
+        public object GetBloggerById(int id)
+        {
+            var connector = new MySqlConnection(ConnectionString);
+
+            connector.Open();
+
+            string sql = @"SELECT * FROM `blogger` WHERE `id` = @id";
+
+            var cmd = new MySqlCommand(sql, connector);
+
+            cmd.Parameters.AddWithValue("@id", id);
+
+            var datareader = cmd.ExecuteReader();
+
+            Blogger blogger = null;
+            object result = null;
+
+            if (datareader.Read() == true)
+            {
+                blogger = new Blogger
+                {
+                    Id = datareader.GetInt32("id"),
+                    Name = datareader.GetString("name"),
+                    Email = datareader.GetString("email"),
+                    Age = datareader.GetInt32("age"),
+                    Password = datareader.GetString("password"),
+                    RegistrationTime = datareader.GetDateTime("registrationTime")
+                };
+
+                result = new { message = "Sikeres lekérdezés", result = blogger };
+            }
+            else
+            {
+                result = new { message = "Nincs ilyen Id.", result = blogger };
+            }
+
+            connector.Close();
+            return result;
+
+        }
     }
 }
