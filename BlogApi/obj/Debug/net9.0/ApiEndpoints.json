@@ -11,6 +11,22 @@
   },
   {
     "ContainingType": "BlogApi.Controllers.BloggerController",
+    "Method": "AddNewBlogger",
+    "RelativePath": "blogger",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addNewBloggerDto",
+        "Type": "BlogApi.Models.DTOs.AddNewBloggerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BlogApi.Controllers.BloggerController",
     "Method": "GetBloggerById",
     "RelativePath": "blogger/byId",
     "HttpMethod": "GET",

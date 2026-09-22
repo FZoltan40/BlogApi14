@@ -1,4 +1,5 @@
 ﻿using BlogApi.Models;
+using BlogApi.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using MySqlConnector;
 
@@ -65,8 +66,8 @@ namespace BlogApi.Controllers
 
             var datareader = cmd.ExecuteReader();
 
-            Blogger blogger = null;
-            object result = null;
+            Blogger? blogger = null;
+            object? result = null;
 
             if (datareader.Read() == true)
             {
@@ -91,5 +92,31 @@ namespace BlogApi.Controllers
             return result;
 
         }
+
+        [HttpPost]
+        public object AddNewBlogger(AddNewBloggerDto addNewBloggerDto)
+        {
+            var connector = new MySqlConnection(ConnectionString);
+
+            connector.Open();
+
+            string sql = @"INSERT INTO `blogger`(`name`, `email`, `age`, `password`, `registrationTime`) 
+                VALUES (@name,@email,@age,@password,@registrationTime)";
+
+            var cmd = new MySqlCommand(sql, connector);
+
+            cmd.Parameters.AddWithValue("@name", addNewBloggerDto.Name);
+            cmd.Parameters.AddWithValue("@email", addNewBloggerDto.Email);
+            cmd.Parameters.AddWithValue("@age", addNewBloggerDto.Age);
+            cmd.Parameters.AddWithValue("@password", addNewBloggerDto.Password);
+            cmd.Parameters.AddWithValue("@registrationTime", DateTime.Now);
+
+            cmd.ExecuteNonQuery();
+
+            connector.Close();
+
+            return new { message = "Sikeres felvétel.", result = addNewBloggerDto };
+        }
+
     }
 }
