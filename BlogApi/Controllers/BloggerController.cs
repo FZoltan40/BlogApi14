@@ -138,5 +138,27 @@ namespace BlogApi.Controllers
             return new { message = "Sikeres törlés.", result = "" };
         }
 
+        [HttpPut]
+        public object UpdateBloggerDto(int id, UpdateBloggerDto updateBloggerDto)
+        {
+            var connector = new MySqlConnection(ConnectionString);
+            connector.Open();
+
+            string sql = @"UPDATE `blogger` SET `name`=@name,`email`=@email,`age`=@age,`password`=@password WHERE `id` = @id";
+
+            var cmd = new MySqlCommand(sql, connector);
+
+            cmd.Parameters.AddWithValue("@name", updateBloggerDto.Name);
+            cmd.Parameters.AddWithValue("@email", updateBloggerDto.Email);
+            cmd.Parameters.AddWithValue("@age", updateBloggerDto.Age);
+            cmd.Parameters.AddWithValue("@password", updateBloggerDto.Password);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
+
+            connector.Close();
+            return new { message = "Sikeres frissítés.", result = updateBloggerDto };
+        }
+
     }
 }
